@@ -25,30 +25,18 @@ public class EXP1 : MonoBehaviour
 
     bool goToPlayer = false;
 
+    Transform target;
+
     public Rigidbody rb;
 
     void Start()
     {
-        float randomX = Random.Range(minRandomX, maxRandomX);
-        float randomY = Random.Range(minRandomY, maxRandomY);
-        float randomZ = Random.Range(minRandomY, maxRandomY);
-        Vector3 upDirection = new Vector3(0, randomY, 0);
-
-        Direction1 = upDirection;
-
-        float randomX1 = Random.Range(minRandomX, maxRandomX);
-        float randomY1 = Random.Range(minRandomY, maxRandomY);
-        float randomZ1 = Random.Range(minRandomY, maxRandomY);
-        Vector3 upDirection1 = new Vector3(randomX1, 0, randomZ1);
-
-        Direction2 = upDirection1;
-
         goToPlayer = false;
     }
 
     void Update()
     {
-        PlayerController target = FindObjectOfType<PlayerController>();
+        target = PlayerManager.instance.player.transform;
 
         if (ImpulseUp == false)
         {
@@ -73,7 +61,9 @@ public class EXP1 : MonoBehaviour
         {
             if (target != null)
             {
-                target.Exp += 1f;
+                PlayerController target1 = GameObject.FindObjectOfType<PlayerController>();
+
+                target1.TakeExp();
 
                 GameObject destroyParticle = Instantiate(DestroyParticle, transform.position, transform.rotation);
                 Destroy(destroyParticle, 2f);

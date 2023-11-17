@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Gun1 : MonoBehaviour
 {
@@ -43,6 +44,11 @@ public class Gun1 : MonoBehaviour
 
     public Transform firePoint;
     public ParticleSystem muzzleFlash;
+
+    public TextMeshProUGUI damage1;
+    public TextMeshProUGUI shootSpeed;
+
+    public Transform UpgradesUI;
 
     void Start()
     {
@@ -132,6 +138,33 @@ public class Gun1 : MonoBehaviour
 
         #endregion
 
+        damage1.text = ProjectileDamage.ToString();
+        shootSpeed.text = fireRate.ToString();
+
+    }
+
+    public void UpgradeDamage()
+    {
+        ProjectileDamage += 15;
+
+        UpgradesUI.gameObject.SetActive(false);
+
+        Time.timeScale = 1f;
+
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+    }
+
+    public void UpgradeAttackSpeed()
+    {
+        fireRate += 5;
+
+        UpgradesUI.gameObject.SetActive(false);
+
+        Time.timeScale = 1f;
+
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     void Shoot1()

@@ -4,6 +4,7 @@ using UnityEngine;
 using Cinemachine;
 using UnityEngine.Animations;
 using UnityEngine.AI;
+using TMPro;
 
 public class PlayerController : MonoBehaviour
 {
@@ -28,7 +29,10 @@ public class PlayerController : MonoBehaviour
     public float jumpForce = 5f;
 
     [Header("Exp")]
+    public float Level = 0;
     public float Exp = 0f;
+    public ExpBar expBar;
+    public Transform UpgradeBar;
 
     [Header("Keybinds")]
     [SerializeField] KeyCode jumpKey = KeyCode.Space;
@@ -83,6 +87,8 @@ public class PlayerController : MonoBehaviour
 
     public AmmoCounter ammoCounter;
 
+    public TextMeshProUGUI lvl1;
+
     Rigidbody rb;
 
     RaycastHit slopeHit;
@@ -111,6 +117,13 @@ public class PlayerController : MonoBehaviour
         InvokeRepeating("UpdateTarget", 0f, 0.5f);
 
         InvokeRepeating("UpdateGrapplingPoints", 0f, 1f);
+
+        Level = 1;
+
+        UpgradeBar.gameObject.SetActive(false);
+
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     void UpdateTarget()
@@ -184,9 +197,6 @@ public class PlayerController : MonoBehaviour
             MyInput();
         }
 
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
-
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
         isGroundEdgeCheck = Physics.CheckSphere(groundEdgeCheck.position, 0.25f, groundMask);
@@ -236,6 +246,61 @@ public class PlayerController : MonoBehaviour
             rb.drag = groundDrag;
         }
 
+        if (Level == 1)
+        {
+            expBar.SetMaxExp(15f);
+            lvl1.text = "1";
+        }
+        else if (Level == 2)
+        {
+            expBar.SetMaxExp(20f);
+            lvl1.text = "2";
+        }
+        else if (Level == 3)
+        {
+            expBar.SetMaxExp(25f);
+            lvl1.text = "3";
+        }
+        else if (Level == 4)
+        {
+            expBar.SetMaxExp(30f);
+            lvl1.text = "4";
+        }
+
+        if (Exp == 15)
+        {
+            Invoke("LevelUp", 0f);
+        }
+        else if (Exp == 20)
+        {
+            Invoke("LevelUp", 0f);
+        }
+        else if (Exp == 25)
+        {
+            Invoke("LevelUp", 0f);
+        }
+        else if (Exp == 30)
+        {
+            Invoke("LevelUp", 0f);
+        }
+    }
+
+    public void LevelUp()
+    {
+        UpgradeBar.gameObject.SetActive(true);
+        Level += 1f;
+        Exp = 0f;
+        expBar.SetExp(Exp);
+        Time.timeScale = 0f;
+
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+    }
+
+    public void TakeExp()
+    {
+        Exp += 1f;
+        expBar.SetExp(Exp);
     }
 
     void Jump()
