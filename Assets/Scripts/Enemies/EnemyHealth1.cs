@@ -30,7 +30,7 @@ public class EnemyHealth1 : MonoBehaviour
     [Header("Exp")]
     public float GoldCount = 12f;
     private int currentGoldCount;
-    public EXP1 Exp;
+    public GameObject Exp;
     public Transform GoldFirePoint;
     
     [Header("Death Particle")]
@@ -146,8 +146,8 @@ public class EnemyHealth1 : MonoBehaviour
 
         for (currentGoldCount = 0; currentGoldCount < GoldCount; currentGoldCount++)
         {
-            EXP1 exp1 = Instantiate(Exp, GoldFirePoint.transform.position, GoldFirePoint.transform.rotation) as EXP1;
-            Destroy(exp1, 6f);
+            GameObject exp1 = Instantiate(Exp, GoldFirePoint.transform.position, GoldFirePoint.transform.rotation) as GameObject;
+            Destroy(exp1, 20f);
         }
 
         /*

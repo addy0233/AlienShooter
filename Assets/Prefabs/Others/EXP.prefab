@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5685772689756334095}
   - component: {fileID: 58301970256796276}
   - component: {fileID: 5685772689756334093}
-  - component: {fileID: 5685772689756334094}
+  - component: {fileID: 7050322957344542808}
   m_Layer: 0
   m_Name: EXP
   m_TagString: Untagged
@@ -64,7 +64,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 2
---- !u!114 &5685772689756334094
+--- !u!114 &7050322957344542808
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -73,23 +73,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 5685772689756334090}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ff0ae43332a37743bcd872a820377e9, type: 3}
+  m_Script: {fileID: 11500000, guid: e6ce1a2226a50f14da0762d01a6d5ad6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxForce: 0.0008
-  minForce: 0.0005
   DetectRange: 4
   speed: 16
   collisionRange: 0.62
   DestroyParticle: {fileID: 5503531732871854279, guid: b3957b43a8438dd458f7cf6593eaa438,
     type: 3}
-  maxRandomX: 360
-  minRandomX: -360
-  maxRandomY: 360
-  minRandomY: -360
-  Direction1: {x: 0, y: 0, z: 0}
-  Direction2: {x: 0, y: 0, z: 0}
-  rb: {fileID: 5685772689756334093}
 --- !u!1 &5685772690146753996
 GameObject:
   m_ObjectHideFlags: 0

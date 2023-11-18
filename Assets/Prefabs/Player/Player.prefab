@@ -448,7 +448,7 @@ MonoBehaviour:
   timeBetweenShots: 0
   TimeSpeed: 1
   DelayBeforeShootingOn: 1
-  DelayBeforeShooting: 0.1
+  DelayBeforeShooting: 0
   ammoCounter: {fileID: 1251805756219282973}
   playerController: {fileID: 55665634004990485}
   firePoint: {fileID: 55665633183993361}

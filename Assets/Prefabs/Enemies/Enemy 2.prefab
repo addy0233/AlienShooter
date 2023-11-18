@@ -1280,7 +1280,7 @@ MonoBehaviour:
   healthBar: {fileID: 261695262192861307}
   HealthBar: {fileID: 5471586508562330915}
   GoldCount: 1
-  Exp: {fileID: 5685772689756334094, guid: bff4054431e82ce44a178743e5141bbc, type: 3}
+  Exp: {fileID: 5685772689756334090, guid: bff4054431e82ce44a178743e5141bbc, type: 3}
   GoldFirePoint: {fileID: 5210765793159069365}
   SpawnDeathParticle: 0
   DeathParticleScale1: 0
