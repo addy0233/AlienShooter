@@ -7,7 +7,7 @@ public class Gun1 : MonoBehaviour
 {
     [Header("Projectile")]
     [Tooltip("Put an object that contain a Projectile1 script on it")]
-    public Projectile1 projectile;
+    public Projectile2 projectile;
     [Space]
     public float ProjectileSpeed = 100f;
     public float ProjectileLifeTime = 2f;
@@ -99,10 +99,7 @@ public class Gun1 : MonoBehaviour
                     {
                         shotCounter = timeBetweenShots;
 
-                        if (playerController.distanceToTarget >= playerController.MinimumRadius)
-                        {
-                            Shoot1();
-                        }
+                        Shoot1();
                     }
                     else
                     {
@@ -120,10 +117,7 @@ public class Gun1 : MonoBehaviour
                 {
                     shotCounter = timeBetweenShots;
 
-                    if (playerController.distanceToTarget >= playerController.MinimumRadius)
-                    {
-                        Shoot1();
-                    }
+                    Shoot1();
                 }
                 else
                 {
@@ -175,7 +169,7 @@ public class Gun1 : MonoBehaviour
 
         ammoCounter.SetAmmo(currentAmmo);
 
-        Projectile1 newProjectile = Instantiate(projectile, firePoint.position, firePoint.rotation) as Projectile1;
+        Projectile2 newProjectile = Instantiate(projectile, firePoint.position, firePoint.rotation) as Projectile2;
         newProjectile.speed = ProjectileSpeed;
         newProjectile.Damage = ProjectileDamage;
         newProjectile.TimeToDestroy = ProjectileLifeTime;

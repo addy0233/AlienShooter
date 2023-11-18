@@ -19667,7 +19667,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5301219632835065799}
   - component: {fileID: 1457789301441508076}
-  - component: {fileID: 4410972432850632873}
+  - component: {fileID: 5304077000297633085}
   m_Layer: 6
   m_Name: Projectile Turret 2
   m_TagString: Untagged
@@ -19708,7 +19708,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &4410972432850632873
+--- !u!114 &5304077000297633085
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -19717,11 +19717,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 6387007282519490056}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ddc5cd5c3d455d42972a52ee4f16b70, type: 3}
+  m_Script: {fileID: 11500000, guid: 6137b642f66114e41a64f57a638fe69b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Damage: 25
-  speed: 15
+  speed: 100
   poisonBullet: 0
   poisonBulletsLevel: 0
   PoisonTime: 3
@@ -19733,7 +19733,7 @@ MonoBehaviour:
   PopUpDamageOn: 1
   popup1: {fileID: 7362622288307757429, guid: 3f2661e3e88ff4744b94acc43ad2597e, type: 3}
   popupScale: 1.5
-  CollisionRadius: 0.2
+  CollisionRange: 0.2
   collisionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -19742,7 +19742,7 @@ MonoBehaviour:
   DestroyParticle: {fileID: 1974592250055434, guid: b15a120c1390db449b8eb5af19d62424,
     type: 3}
   ParticleScale1: 2
-  ParticleScale2: 2
+  ParticleScale2: 6
   rb: {fileID: 1457789301441508076}
   firePoint: {fileID: 695857743472009908}
 --- !u!1 &9045101327507386934

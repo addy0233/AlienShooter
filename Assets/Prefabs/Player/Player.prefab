@@ -435,7 +435,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4712d442cd930fc4e84e1e647bc6daaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: 4410972432850632873, guid: 89b07fcaa6b17c34789b34c43602990e,
+  projectile: {fileID: 5304077000297633085, guid: 89b07fcaa6b17c34789b34c43602990e,
     type: 3}
   ProjectileSpeed: 100
   ProjectileLifeTime: 2
@@ -607,7 +607,6 @@ MonoBehaviour:
   moveSpeed: 10
   DrawGizmos: 1
   DetectRadius: 20
-  MinimumRadius: 1.79
   EnemyLayer:
     serializedVersion: 2
     m_Bits: 256
@@ -616,6 +615,7 @@ MonoBehaviour:
   distanceToTarget: 0
   jumpForce: 8
   Level: 0
+  ExpToLvlUp: 15
   Exp: 0
   expBar: {fileID: 2497574635917976774}
   UpgradeBar: {fileID: 6208294459712570495}

@@ -116,7 +116,7 @@ public class Enemy1 : MonoBehaviour
 
                     Hitting();
 
-                    agent.speed = 0f;
+                    agent.SetDestination(transform.position);
 
                     anim.SetBool("isRunning", false);
                 }

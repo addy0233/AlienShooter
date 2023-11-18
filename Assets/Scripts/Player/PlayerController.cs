@@ -18,7 +18,6 @@ public class PlayerController : MonoBehaviour
 
     [Header("Enemy Detection")]
     public float DetectRadius = 12f;
-    public float MinimumRadius = 2f;
     public LayerMask EnemyLayer;
     public Transform target;
     public string enemyTag;
@@ -30,6 +29,7 @@ public class PlayerController : MonoBehaviour
 
     [Header("Exp")]
     public float Level = 0;
+    public float ExpToLvlUp = 15f;
     public float Exp = 0f;
     public ExpBar expBar;
     public Transform UpgradeBar;
@@ -246,40 +246,9 @@ public class PlayerController : MonoBehaviour
             rb.drag = groundDrag;
         }
 
-        if (Level == 1)
-        {
-            expBar.SetMaxExp(15f);
-            lvl1.text = "1";
-        }
-        else if (Level == 2)
-        {
-            expBar.SetMaxExp(20f);
-            lvl1.text = "2";
-        }
-        else if (Level == 3)
-        {
-            expBar.SetMaxExp(25f);
-            lvl1.text = "3";
-        }
-        else if (Level == 4)
-        {
-            expBar.SetMaxExp(30f);
-            lvl1.text = "4";
-        }
+        lvl1.text = Level.ToString();
 
-        if (Exp == 15)
-        {
-            Invoke("LevelUp", 0f);
-        }
-        else if (Exp == 20)
-        {
-            Invoke("LevelUp", 0f);
-        }
-        else if (Exp == 25)
-        {
-            Invoke("LevelUp", 0f);
-        }
-        else if (Exp == 30)
+        if (Exp == ExpToLvlUp)
         {
             Invoke("LevelUp", 0f);
         }
@@ -292,6 +261,10 @@ public class PlayerController : MonoBehaviour
         Exp = 0f;
         expBar.SetExp(Exp);
         Time.timeScale = 0f;
+
+        ExpToLvlUp += 10f;
+
+        expBar.SetMaxExp(ExpToLvlUp);
 
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
@@ -372,9 +345,6 @@ public class PlayerController : MonoBehaviour
         {
             Gizmos.color = Color.red;
             Gizmos.DrawWireSphere(transform.position, DetectRadius);
-
-            Gizmos.color = Color.green;
-            Gizmos.DrawWireSphere(transform.position, MinimumRadius);
 
             Gizmos.color = Color.yellow;
             Gizmos.DrawWireSphere(ladderOrigin.position, ladderRange);
